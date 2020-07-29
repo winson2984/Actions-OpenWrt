@@ -9,7 +9,13 @@
 #
 
 name: Build OpenWrt
-on: push
+on:
+  repository_dispatch:
+  release:
+    types: published
+  push:
+    branches:
+      - master
 jobs:
   build:
     runs-on: ubuntu-18.04
